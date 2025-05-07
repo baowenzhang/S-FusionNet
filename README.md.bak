@@ -1,0 +1,38 @@
+<<<<<<< HEAD
+# S-FusionNet
+=======
+# S-FusionNet
+A multi-modal semi-fusion 3D object detection network based on neighborhood enhanced feature interpolation
+<<<<<<< HEAD
+>>>>>>> d633d29 (Initial commit)
+=======
+The S-FusionNet is a 3D object detection network based on multi-modal semi-fusion. It only uses image features to assist in extracting voxel features. In the detection network, image features are no longer fused, and only voxel features are used for object detection tasks. During the process of image and voxel fusion, the projection operation leads to slow inference speed. Therefore, we propose a voxel projection optimization positioning (VPOL) strategy. Secondly, to address the issues of reduced detection performance caused by placing the fusion module in the shallow layer of the network in the VPOL strategy, as well as the loss of feature information and limitations in existing projection interpolation methods, we propose a neighborhood-enhanced feature interpolation method. A series of experiments and ablation experiments verify the generalization of the S-FusionNet and the effectiveness of each module.
+
+
+## Updates
+2025-05-04: S-FusionNet V1.1 is released!
+
+
+```
+
+# Introduction
+
+In the projection-driven multi-modal 3D object detection task, the data projection pro-cess has extremely high computational complexity, which restricts the efficiency of the detection network. In addition, traditional projection interpolation methods have cer-tain limitations. To improve the voxel projection efficiency and explore a projection in-terpolation method that can enhance the detection accuracy, we propose a voxel pro-jection optimized positioning strategy and an independent projection interpolation method - Neighborhood-Enhanced Feature Interpolation respectively. Meanwhile, we propose a new 3D object detection network S-FusionNet based on multi-modal semi-fusion. Through the optimized positioning strategy, the inference speed is in-creased from 148.5ms to 92.8ms. On the basis of using the optimized positioning strat-egy, with an additional 6.1 ms consumed by the network, the Neighborhood-Enhanced Feature Interpolation method improves the detection accuracy of "pedestrians" at the "moderate" and "hard" levels by 2.18% and 2.25% respectively. It also improves the de-tection accuracy of "Car" and "Cyclist" at the "moderate" level by 1.36% and 1.3% re-spectively. We also verify the stability and generalization ability of the proposed semi-fusion network S-FusionNet through robustness experiments.
+# Installation
+1. Clone this repository.
+2. Our net is based on [OpenPCDet]
+# Train
+To train the CenterNet3D, run the following command:
+```
+
+python train.py --cfg_file cfgs/kitti_models/voxel_rcnn_multiclasses_focalsconv.yaml
+```
+
+# Eval
+To evaluate the model, run the following command:
+```
+
+python test.py --cfg_file cfgs/kitti_models/voxel_rcnn_multiclasses_focalsconv.yaml --batch_size 1 --ckpt ../output/kitti_models/voxel_rcnn_multiclasses_focalsconv/default/ckpt/last.pth --save_to_file
+```
+
+>>>>>>> b05d6fb (modify)
